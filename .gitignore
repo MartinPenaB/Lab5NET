@@ -2,7 +2,3 @@ appsettings.Development.json
 appsettings.json
 bin/
 obj/
-appsettings.Development.json
-appsettings.json
-bin/
-obj/

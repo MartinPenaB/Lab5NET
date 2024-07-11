@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2024-07-10T21:59:29.7218689Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "2ad7d156-d999-4adc-b065-5a8dc99d2348"
+    },
+    "pena0035lab3.resourceGroupLocation": {
+      "Name": "pena0035lab3.resourceGroupLocation",
+      "Type": null,
+      "Value": "canadacentral"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "pena0035lab3"
+    },
+    "pena0035lab3.subscriptionId": {
+      "Name": "pena0035lab3.subscriptionId",
+      "Type": "subscription",
+      "Value": "2ad7d156-d999-4adc-b065-5a8dc99d2348"
+    },
+    "pena0035lab3.resourceGroupName": {
+      "Name": "pena0035lab3.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "pena0035lab3"
+    },
+    "pena0035lab3.resourceName": {
+      "Name": "pena0035lab3.resourceName",
+      "Type": null,
+      "Value": "pena0035lab3"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+﻿@model Lab5NET.Models.ViewModels.NewsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SportClubs.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportClubs.FirstOrDefault().Fee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sportClub in Model.SportClubs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => sportClub.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => sportClub.Fee)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@sportClub.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@sportClub.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@sportClub.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

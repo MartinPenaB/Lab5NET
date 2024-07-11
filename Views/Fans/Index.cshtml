@@ -1,0 +1,48 @@
+﻿@model Lab5NET.Models.ViewModels.NewsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fans.FirstOrDefault().LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fans.FirstOrDefault().FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fans.FirstOrDefault().BirthDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fan in Model.Fans)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => fan.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => fan.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => fan.BirthDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@fan.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@fan.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@fan.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

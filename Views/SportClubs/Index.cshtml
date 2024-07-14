@@ -32,6 +32,7 @@
                     @Html.DisplayFor(modelItem => sportClub.Fee)
                 </td>
                 <td>
+                    <a asp-action="Index" asp-route-id="@sportClub.Id">Select</a> |
                     <a asp-action="Edit" asp-route-id="@sportClub.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@sportClub.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@sportClub.Id">Delete</a>
@@ -40,3 +41,36 @@
         }
     </tbody>
 </table>
+
+@if (Model.Fans != null)
+{
+    <h3>Subscribed Fans:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                @if (Model.Fans.Any())
+                {
+                    <th>Full Name</th>
+                    <th>Birth Date</th>
+                }
+                else
+                {
+                    <th>No subscribed fans exist</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fan in Model.Fans)
+            {
+                <tr>
+                    <td>
+                        @fan.FullName
+                    </td>
+                    <td>
+                        @fan.BirthDate.ToString("yyyy-MM-dd")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

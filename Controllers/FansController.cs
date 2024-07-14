@@ -26,11 +26,10 @@ namespace Lab5NET.Controllers
             var viewModel = new NewsViewModel
             {
                 Fans = await _context.Fans.ToListAsync(),
-                // Add other assignments as needed for SportClubs and Subscriptions
+                
             };
 
-            return View(viewModel); // Pass NewsViewModel instance to the view
-        }
+            return View(viewModel);         }
 
         // GET: Fans/Details/5
         public async Task<IActionResult> Details(int? id)

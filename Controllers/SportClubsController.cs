@@ -21,15 +21,22 @@ namespace Lab5NET.Controllers
         }
 
         // GET: SportClubs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? id)
         {
             var viewModel = new NewsViewModel
             {
-                SportClubs = await _context.SportClubs.ToListAsync(),
-                // Add other assignments as needed for SportClubs and Subscriptions
+                SportClubs = await _context.SportClubs.ToListAsync()
             };
 
-            return View(viewModel); // Pass NewsViewModel instance to the view
+            if (id != null)
+            {
+                viewModel.Fans = await _context.Subscriptions
+                    .Where(s => s.SportClubId == id)
+                    .Select(s => s.Fan)
+                    .ToListAsync();
+            }
+
+            return View(viewModel);
         }
 
         // GET: SportClubs/Details/5

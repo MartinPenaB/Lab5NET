@@ -1,0 +1,53 @@
+﻿@page
+@model Lab5NET.Pages.Predictions.IndexModel
+
+@{
+    ViewData["Title"] = "Predictions";
+}
+
+<h1>Show News for Sport Club @Model.SportClubTitle</h1>
+
+<p>
+    <a asp-page="/Predictions/Create" asp-route-id="@Model.SportClubId">Upload New</a>
+</p>
+
+@if (Model.Predictions != null && Model.Predictions.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Predictions[0].FileName)
+                </th>
+                <th>
+                    Image
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Predictions)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileName)
+                    </td>
+                    <td>
+                        <img src="@item.Url" alt="Image" style="max-width: 200px; max-height: 200px;" />
+                    </td>
+                    <td>
+                        <a asp-page="./Delete" asp-route-id="@item.PredictionId" asp-route-sportClubId="@Model.SportClubId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No news found for this sport club.</p>
+}
+<div>
+    <a href="/SportClubs">Back to List</a>
+</div>
+

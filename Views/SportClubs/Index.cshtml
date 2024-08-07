@@ -33,6 +33,7 @@
                 </td>
                 <td>
                     <a asp-action="Index" asp-route-id="@sportClub.Id">Select</a> |
+                    <a asp-page="/Predictions/Index" asp-route-id="@sportClub.Id">News</a> |
                     <a asp-action="Edit" asp-route-id="@sportClub.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@sportClub.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@sportClub.Id">Delete</a>
@@ -51,7 +52,6 @@
                 @if (Model.Fans.Any())
                 {
                     <th>Full Name</th>
-                    <th>Birth Date</th>
                 }
                 else
                 {
@@ -65,9 +65,6 @@
                 <tr>
                     <td>
                         @fan.FullName
-                    </td>
-                    <td>
-                        @fan.BirthDate.ToString("yyyy-MM-dd")
                     </td>
                 </tr>
             }

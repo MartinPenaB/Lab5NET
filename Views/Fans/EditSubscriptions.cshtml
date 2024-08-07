@@ -1,0 +1,34 @@
+﻿@model Lab5NET.Models.ViewModels.FanSubscriptionsViewModel
+
+@{
+    ViewData["Title"] = "Edit Subscriptions";
+}
+
+<h1>Edit Subscriptions for @Model.Fan.FullName</h1>
+
+<form asp-action="EditSubscriptions" method="post">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Fan.Id)
+
+    <div class="form-group">
+        <label>Select Sport Clubs to Subscribe/Unsubscribe:</label>
+        @foreach (var sportClub in Model.SportClubs)
+        {
+            <div class="form-check">
+                <input type="checkbox"
+                       name="SelectedSportClubIds"
+                       value="@sportClub.Id"
+                       id="sportClub_@sportClub.Id"
+                       class="form-check-input"
+                @(Model.SelectedSportClubIds.Contains(sportClub.Id) ? "checked" : "") />
+                <label class="form-check-label" for="sportClub_@sportClub.Id">
+                    @sportClub.Title
+                </label>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<a asp-action="Index">Back to List</a>

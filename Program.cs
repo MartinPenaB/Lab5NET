@@ -1,3 +1,4 @@
+using Azure.Storage.Blobs;
 using Lab5NET.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,16 @@ namespace Lab5NET
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddRazorPages();
+
+            var blobConnection = builder.Configuration.GetConnectionString("AzureBlobStorage");
+            builder.Services.AddSingleton(new BlobServiceClient(blobConnection));
+
+            // Add services to the container.
             builder.Services.AddControllersWithViews();
             var connection = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<SportsDbContext>(options => options.UseSqlServer(connection));
+           
             builder.Services.AddSession();
             var app = builder.Build();
 
@@ -40,11 +48,16 @@ namespace Lab5NET
 
             app.UseRouting();
 
+            app.UseAuthorization();
+
             app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            // Define routing here
+            app.MapRazorPages();
 
             app.Run();
         }

@@ -1,0 +1,58 @@
+﻿@page
+@model Lab5NET.Pages.Predictions.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Upload</h1>
+
+<h4>Upload an add for Sport Club @Model.SportClubTitle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="Upload" type="file" class="form-control" />
+                <span asp-validation-for="Upload" class="text-danger"></span>
+            </div>
+
+            @* <div class="form-group">
+                <label asp-for="Prediction.FileName" class="control-label">File Name</label>
+                <input asp-for="Prediction.FileName" class="form-control" />
+                <span asp-validation-for="Prediction.FileName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Prediction.Url" class="control-label">File URL</label>
+                <input asp-for="Prediction.Url" class="form-control" />
+                <span asp-validation-for="Prediction.Url" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Prediction.Question" class="control-label">Question</label>
+                <select asp-for="Prediction.Question" class="form-control">
+                    <option value="">-- Select a Question --</option>
+                    <option value="Earth">Earth</option>
+                    <option value="Computer">Computer</option>
+                </select>
+                <span asp-validation-for="Prediction.Question" class="text-danger"></span>
+            </div> *@
+
+            <div class="form-group">
+                <input type="submit" value="Upload Now" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-page="/Predictions/Index" asp-route-id="@Model.SportClubId">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

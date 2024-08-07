@@ -22,6 +22,9 @@ namespace Lab5NET.Models
         // Navigation property
         public ICollection<Subscription> Subscriptions { get; set; }
 
+        // Navigation property for Predictions
+        public ICollection<Prediction> Predictions { get; set; }
+
     }
 
 }

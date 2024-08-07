@@ -9,7 +9,7 @@ namespace Lab5NET.Data
             context.Database.EnsureCreated();
 
             // If data already exists, return
-            if (context.Fans.Any() && context.SportClubs.Any() && context.Subscriptions.Any())
+            if (context.Fans.Any() && context.SportClubs.Any() && context.Subscriptions.Any() && context.Predictions.Any())
             {
                 return;   // DB has been seeded
             }
@@ -56,6 +56,20 @@ namespace Lab5NET.Data
             foreach (var subscription in subscriptions)
             {
                 context.Subscriptions.Add(subscription);
+            }
+            context.SaveChanges();
+
+
+
+            var predictions = new Prediction[]
+            {
+                new Prediction { FileName = "Earth", Url = "https://pena0035lab6.blob.core.windows.net/earthimages/nasa-map.jpg", SportClubId = "A1" },
+                new Prediction { FileName = "Computer", Url = "https://pena0035lab6.blob.core.windows.net/computerimages/960x0.jpg", SportClubId = "B1" }
+            };
+
+            foreach (var prediction in predictions)
+            {
+                context.Predictions.Add(prediction);
             }
             context.SaveChanges();
         }

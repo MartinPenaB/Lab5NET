@@ -1,11 +1,20 @@
 {
   "dependencies": {
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/pena0035lab3/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzureBlobStorage_D21A7467E4, /subscriptions/2ad7d156-d999-4adc-b065-5a8dc99d2348/resourceGroups/pena0035lab3/providers/Microsoft.Web/sites/pena0035lab3/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzureBlobStorage_ACAF15D799",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/pena0035lab6",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:AzureBlobStorage",
+      "dynamicId": null
+    },
     "mssql1": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/pena0035lab3/providers/Microsoft.ServiceLinker/linkers/ConnectionStrings_291E5EE066",
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/pena0035lab3/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsDefaultConnection_D7CEE4FDC0",
       "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/pena0035server/databases/pena0035lab5",
       "type": "mssql.azure",
-      "connectionId": "ConnectionStrings"
+      "connectionId": "ConnectionStrings:DefaultConnection",
+      "dynamicId": null
     }
   }
 }

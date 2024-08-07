@@ -13,13 +13,14 @@ namespace Lab5NET.Data
         public DbSet<Fan> Fans { get; set; }
         public DbSet<SportClub> SportClubs { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<Prediction> Predictions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Ensure table names are singular
             modelBuilder.Entity<Fan>().ToTable("Fan");
             modelBuilder.Entity<SportClub>().ToTable("SportClub");
             modelBuilder.Entity<Subscription>().ToTable("Subscription");
+            modelBuilder.Entity<Prediction>().ToTable("Prediction");
 
             // Configure composite primary key for Subscription entity
             modelBuilder.Entity<Subscription>()
@@ -35,6 +36,11 @@ namespace Lab5NET.Data
                 .HasOne(s => s.SportClub)
                 .WithMany(sc => sc.Subscriptions)
                 .HasForeignKey(s => s.SportClubId);
+
+            modelBuilder.Entity<Prediction>()
+                .HasOne(p => p.SportClub)
+                .WithMany(s => s.Predictions)
+                .HasForeignKey(p => p.SportClubId);
         }
     }
 }

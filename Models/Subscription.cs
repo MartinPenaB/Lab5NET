@@ -4,7 +4,7 @@ namespace Lab5NET.Models
 {
     public class Subscription
     {
-
+        
         // Composite key
         public int FanId { get; set; }
         public string SportClubId { get; set; }

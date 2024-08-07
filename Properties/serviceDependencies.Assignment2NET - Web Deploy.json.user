@@ -2,11 +2,11 @@
   "dependencies": {
     "mssql1": {
       "restored": true,
-      "restoreTime": "2024-08-07T00:16:40.9681453Z"
+      "restoreTime": "2024-08-07T22:41:11.3458151Z"
     },
     "storage1": {
       "restored": true,
-      "restoreTime": "2024-08-07T00:12:41.254429Z"
+      "restoreTime": "2024-08-07T22:41:46.9056449Z"
     }
   },
   "parameters": {
@@ -15,23 +15,8 @@
       "Type": "subscription",
       "Value": "2ad7d156-d999-4adc-b065-5a8dc99d2348"
     },
-    "pena0035lab3.resourceGroupLocation": {
-      "Name": "pena0035lab3.resourceGroupLocation",
-      "Type": null,
-      "Value": "canadacentral"
-    },
     "mssql1.resourceGroupName": {
       "Name": "mssql1.resourceGroupName",
-      "Type": "resourceGroup",
-      "Value": "pena0035lab3"
-    },
-    "pena0035lab3.subscriptionId": {
-      "Name": "pena0035lab3.subscriptionId",
-      "Type": "subscription",
-      "Value": "2ad7d156-d999-4adc-b065-5a8dc99d2348"
-    },
-    "pena0035lab3.resourceGroupName": {
-      "Name": "pena0035lab3.resourceGroupName",
       "Type": "resourceGroup",
       "Value": "pena0035lab3"
     },
@@ -44,11 +29,6 @@
       "Name": "storage1.subscriptionId",
       "Type": "subscription",
       "Value": "2ad7d156-d999-4adc-b065-5a8dc99d2348"
-    },
-    "pena0035lab3.resourceName": {
-      "Name": "pena0035lab3.resourceName",
-      "Type": null,
-      "Value": "pena0035lab3"
     }
   }
 }

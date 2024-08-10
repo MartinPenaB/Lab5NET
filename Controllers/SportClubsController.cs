@@ -153,15 +153,25 @@ namespace Lab5NET.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var sportClub = await _context.SportClubs.FindAsync(id);
-            if (sportClub != null)
+            var sportClub = await _context.SportClubs
+                .Include(sc => sc.Predictions)
+                .FirstOrDefaultAsync(sc => sc.Id == id);
+
+            if (sportClub == null)
             {
-                _context.SportClubs.Remove(sportClub);
+                return NotFound();
             }
 
+            if (sportClub.Predictions.Any())
+            {
+                return View(sportClub);
+            }
+
+            _context.SportClubs.Remove(sportClub);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool SportClubExists(string id)
         {
